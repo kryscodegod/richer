@@ -7,6 +7,6 @@ def check_type(strings: StrList, records: DictList) -> TypeCheсker | None:
     return TypeCheсker(string_list=strings, dict_list=records)
     
 @checked
-def check_other_types(strings: AnyList, contents: Content) -> StandartType | None:
+def check_other_types(strings: AnyList, contents: Content) -> Union[StandartType, ContentType] | None:
     return StandartType(any_list=strings) and ContentType(content=contents)
         
