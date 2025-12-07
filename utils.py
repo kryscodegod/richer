@@ -10,4 +10,3 @@ def check_type(strings: StrList, records: DictList) -> bool | None:
 def check_other_types(strings: AnyList, contents: Content) -> bool | None:
     return StandartType(any_list=strings) and ContentType(content=contents)
         
-    

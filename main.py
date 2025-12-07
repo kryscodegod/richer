@@ -31,13 +31,7 @@ class TableMaker:
         title: str | None = None,
         color: str | None = None
         ):
-        if all(
-            [
-                names,
-                rows,
-                check_other_types(names, rows),
-            ]
-            ):
+        if all([names, rows, check_other_types(names, rows),]):
             table = Table(title=title)
             for name in names:
               table.add_column(name, style=color)
