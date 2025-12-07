@@ -16,7 +16,7 @@ class TableMaker:
             for name in self.names:
                 self.table.add_column(name, style=color)
             for item in self.container:
-                self.table.add_row(*stringify(item.values()))
+                self.table.add_row(*[str(item[i]) for i in self.names])
         else:
             console.print(rt.warn)
     
