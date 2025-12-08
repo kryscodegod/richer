@@ -1,4 +1,4 @@
-from models import *
+from rich_tabler.models import *
 
 stringify = lambda _list:[str(x) for x in _list]
 

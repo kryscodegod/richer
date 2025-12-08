@@ -1,4 +1,4 @@
-from utils import *
+from rich_tabler.utils import *
 
 class TableMaker:
     def __init__(

@@ -1,4 +1,4 @@
-from modules import *
+from rich_tabler.modules import *
 
 @dataclass
 class RuText:

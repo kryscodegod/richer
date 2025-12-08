@@ -1,4 +1,4 @@
-from main import *
+from rich_tabler.main import *
 
 
 class ExampleTableDemo(TableMaker):

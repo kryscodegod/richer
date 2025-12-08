@@ -1,5 +1,5 @@
-from custom_types import *
-from mixins import *
+from rich_tabler.custom_types import *
+from rich_tabler.mixins import *
 
 from pydantic import BaseModel, ValidationError
 
