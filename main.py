@@ -1,10 +1,14 @@
-from rich_tabler.utils import *
+from mixins import rt
+from custom_types import *
+from modules import Table, console
+from utils import stringify, check_type, check_other_types
+
 
 class TableMaker:
     def __init__(
             self,
             names: StrList,
-            container: DictList = None,
+            container: DictList | None = None,
             title: str | None = None,
             color: str | None = None,
             ):
@@ -24,7 +28,7 @@ class TableMaker:
         return self.table
     
     @classmethod
-    def create_from_standart_content(
+    def create_from_standard_content(
         cls, 
         names: StrList, 
         rows: Content,

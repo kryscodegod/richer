@@ -1,11 +1,11 @@
-from rich_tabler.main import *
+from main import *
 
 
 class ExampleTableDemo(TableMaker):
     def __init__(
             self,
             names: StrList,
-            container: DictList = None,
+            container: DictList | None = None,
             title: str | None = None,
             color: str | None = None,
             ):

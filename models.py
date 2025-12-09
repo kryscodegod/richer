@@ -1,12 +1,12 @@
-from rich_tabler.custom_types import *
-from rich_tabler.mixins import *
+from modules import *
+from mixins import rt
+from custom_types import AnyList, DictList, StrList, Content, Union, Callable
 
-from pydantic import BaseModel, ValidationError
 
 class ContentType(BaseModel):
     content: Content
 
-class StandartType(BaseModel):
+class StandardType(BaseModel):
     any_list: AnyList
 
 class TypeCheсker(BaseModel):

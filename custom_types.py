@@ -6,9 +6,9 @@ type Content = List[Tuple]
 
 type StrList = List[str]
 
-type DictList = List[Dict[str, str]]
+type DictList = List[Dict[str, Any]]
 
-type ListContent =  StrList | DictList
+#type ListContent =  StrList | DictList
 
 
 

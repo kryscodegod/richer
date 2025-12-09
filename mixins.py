@@ -1,4 +1,4 @@
-from rich_tabler.modules import *
+from modules import console, dataclass
 
 @dataclass
 class RuText:
@@ -8,7 +8,7 @@ class RuText:
     try_again: str = '[green] Попробуйте ввести данные в формате: [bold yellow]list<tuple>'
     set_data_first: str  = '[green] Введите список названий колонок в формате: [bold yellow]list<str>'
     set_data_second: str = '[green] Затем введите данные для создания столбцов в формате: [bold yellow]list<dict<str, str>>'
-    set_data_alt: str = '[green] Вы также можете ввести данные в формате [bold yellow]list<tuple> [green]с методом [blue]create_from_standart_content()'
+    set_data_alt: str = '[green] Вы также можете ввести данные в формате [bold yellow]list<tuple> [green]с методом [blue]create_from_standard_content()'
     set_data_warn: str = '[red]Помните, что  rich.Table принимает только renderable-объекты и строки!'
 
     def __post_init__(self):

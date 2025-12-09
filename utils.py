@@ -1,4 +1,4 @@
-from rich_tabler.models import *
+from models import *
 
 stringify = lambda _list:[str(x) for x in _list]
 
@@ -7,6 +7,6 @@ def check_type(strings: StrList, records: DictList) -> TypeCheсker | None:
     return TypeCheсker(string_list=strings, dict_list=records)
     
 @checked
-def check_other_types(strings: AnyList, contents: Content) -> Union[StandartType, ContentType] | None:
-    return StandartType(any_list=strings) and ContentType(content=contents)
+def check_other_types(strings: AnyList, contents: Content) -> Union[StandardType, ContentType] | None:
+    return StandardType(any_list=strings) and ContentType(content=contents)
         
