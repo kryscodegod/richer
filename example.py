@@ -13,7 +13,7 @@ class ExampleTableDemo(TableMaker):
 
     def __call__(self, mod='default'):
         if mod == 'default':
-           console.print(self.get_table())
+           console.print(self.get_table(), justify='center')
         else:
             rt()
     
