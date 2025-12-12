@@ -29,3 +29,5 @@ if __name__ == '__main__':
     ext(mod='none')
     console.rule('[bold magenta]example-table')
     ext()
+
+    
