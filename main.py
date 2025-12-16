@@ -1,5 +1,4 @@
 from custom_types import *
-from modules import console
 from mixins import rt
 from modules import Table
 from utils import check_other_types, content_handler, get_valid_attrs
@@ -47,7 +46,7 @@ class TableMaker:
         return result_tab
     
     def __repr__(self) -> str:
-        return f'created table with params:\n{"\n".join(
+        return f'{rt.created}:\n{"\n".join(
             [
                 f"columns <name>: {self.names}",
                 f"rows <count>: {len(self.container) if self.container else 'empty'}",
@@ -58,5 +57,5 @@ class TableMaker:
 
 if __name__ == '__main__':
     ...
-   
-
+    
+    
