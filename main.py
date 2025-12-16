@@ -2,7 +2,7 @@ from custom_types import *
 from modules import console
 from mixins import rt
 from modules import Table
-from utils import stringify, check_other_types, content_handler
+from utils import check_other_types, content_handler
 
 
 class TableMaker:
@@ -12,12 +12,15 @@ class TableMaker:
             container: DictList | None = None,
             title: str | None = None,
             color: str | None = None,
+            **kwargs: Any
             ):
+        valid_attrs = {key: value for key, value in kwargs.items()
+            if hasattr(Table(), key)}
         
         self.names = names
         self.title = title
         self.container = container
-        self.table = Table(title=self.title)
+        self.table = Table(title=self.title, **valid_attrs)
 
         content_handler(
             self.container,  # type: ignore
@@ -46,29 +49,6 @@ class TableMaker:
 
         return result_tab
     
-    @classmethod
-    def create_custom_table(
-        cls,
-        names: List[str],
-        data: Tuple[str],
-        **kwargs: Any
-    ) -> Table | None:
-        valid_attrs = {key: value for key, value in kwargs.items()
-            if hasattr(Table(), key)}
-        
-        table = Table(**valid_attrs) # type: ignore
-
-        for name in names:
-            table.add_column(name)
-        
-        if isinstance(data, tuple):
-           table.add_row(*stringify(data))
-        else:
-            console.print(f'{rt.note}\n{rt.warn}')
-            raise ValueError(rt.invalid_data)
-        
-        return table
-
     def __repr__(self) -> str:
         return f'created table with params:\n{"\n".join(
             [
@@ -81,5 +61,4 @@ class TableMaker:
 
 if __name__ == '__main__':
     ...
-
     
