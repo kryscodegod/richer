@@ -29,9 +29,8 @@ class TableMaker:
     def get_table(self) -> Table:
         return self.table
     
-    @classmethod
+    @staticmethod
     def content_data_preview(
-        cls, 
         names: StrList, 
         container: Container,
         ) -> Tree:
