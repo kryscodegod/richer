@@ -9,7 +9,7 @@ class ContentType(BaseModel): # type: ignore
 class StandardType(BaseModel): # type: ignore
     any_list: AnyList
 
-class TypeCheсker(BaseModel): # type: ignore
+class TypeChecker(BaseModel): # type: ignore
     string_list: StrList
     dict_list: DictList
 

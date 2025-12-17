@@ -7,8 +7,7 @@ __author__ = 'Кристина Алиева'
 
 __version__ = '1.0'
 
-initialize = lambda: print(f'init package v{__version__}')
+console.print(f'[magenta]init package [red]v{__version__}')
 
-initialize()
 
 
