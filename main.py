@@ -1,7 +1,7 @@
 from rich_tabler.mixins import rt # type: ignore
-from rich_tabler.custom_types import Any, AnyList, DictList, StrList, Container # type: ignore
-from rich_tabler.modules import Table, Tree, console # type: ignore
-from rich_tabler.utils import check_type, check_other_types, content_handler, get_valid_attrs, content_preview # type: ignore
+from rich_tabler.modules import Table, Tree # type: ignore
+from rich_tabler.custom_types import Any, DictList, StrList, Container # type: ignore
+from rich_tabler.utils import content_handler, content_preview # type: ignore
 
 
 class TableMaker:
@@ -13,11 +13,15 @@ class TableMaker:
             color: str | None = None,
             **kwargs: Any
             ) -> None:
+        
+        kwargs = {key: value for key, value in kwargs.items() if hasattr(Table(), key)}
+
         self.names = names
         self.title = title
+
         self.container = container or []
-        self.table = Table(title=self.title, **get_valid_attrs(kwargs))
-        
+        self.table = Table(title=self.title, **kwargs)
+
         content_handler(self.names, self.table, self.container, color=color) 
     
     @property

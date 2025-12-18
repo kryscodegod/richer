@@ -12,12 +12,6 @@ logger.add(
     )
 
 
-stringify = lambda _list: list(map(str, _list))
-
-
-get_valid_attrs = lambda kwr: {key: value for key, value in kwr.items() if hasattr(Table(), key)} # type: ignore
-
-
 def checked(func: Callable):
 
     @wraps(func)
@@ -42,13 +36,25 @@ def check_type(strings: StrList, records: DictList) -> TypeChecker | None: # typ
 def check_other_types(strings: AnyList, contents: Content) -> Union[StandardType, ContentType] | None: # type: ignore
     return StandardType(any_list=strings) and ContentType(content=contents) # type: ignore
         
-def add_columns(
+def add_content(
         cols: StrList, # type: ignore
         table: Table, # type: ignore
+        container: Container, # type: ignore
+        content_type: str = 'list_dict',
         color: str | None = None
-        ): # type: ignore
-    for cl in cols:
-        table.add_column(cl, style=color)
+        ) -> None: 
+    
+    for col in cols:
+        table.add_column(col, style=color)
+
+    if content_type == 'list_dict':
+       for item in container:
+           table.add_row(*[str(item[i]) for i in cols]) # type: ignore
+
+    elif content_type == 'list_tuple':
+        for item in container:
+            table.add_row(*list(map(str, item)))
+
     
 def content_handler(
         names: StrList, # type: ignore
@@ -58,14 +64,10 @@ def content_handler(
             ) -> None:
     
     if check_type(names, container):
-        add_columns(names, table, color)
-        for item in container:
-            table.add_row(*[str(item[i]) for i in names]) # type: ignore
-
+        add_content(names, table, container, color=color)
+      
     elif check_other_types(names, container):
-        add_columns(names, table, color)
-        for item in container:
-            table.add_row(*stringify(item))
+        add_content(names, table, container, content_type='list_tuple', color=color)
 
     else:
         console.print(rt.warn) # type: ignore
