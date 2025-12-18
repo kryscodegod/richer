@@ -15,21 +15,27 @@ logger.add(
     )
 
 
-def checked(func: Callable):
-
+def checked(func: Callable) -> Callable:
     @wraps(func)
     def wrapper(*args, **kwargs):
-
         try:
            return func(*args, **kwargs)
-        except ValidationError:...
+        except ValidationError:... 
 
+    return wrapper
+
+def all_exceptions(func: Callable) -> Callable:
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        try:
+           return func(*args, **kwargs)
         except Exception as error_msg:
            logger.error((f'{rt.note}\n[green]exception-type: [red]{error_msg}\n'
                 f'[green]in function: [yellow]{func.__name__}'))
            
     return wrapper
 
+ 
 @checked
 def check_type(strings: StrList, records: DictList) -> TypeChecker | None: # type: ignore
     return TypeChecker(string_list=strings, dict_list=records) # type: ignore
