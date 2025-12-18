@@ -13,16 +13,14 @@ logger.add(
 
 
 def checked(func: Callable):
-
+    
     @wraps(func)
     def wrapper(*args, **kwargs):
+
         try:
-           
            return func(*args, **kwargs)
-        
         except ValidationError: # type: ignore
            logger.debug(f'[red] validation-error in func: [yellow]{func.__name__}')
-
         except Exception as error_message:
            logger.error(f'[red]WARNING! [green]{error_message}')
 

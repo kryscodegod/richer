@@ -32,7 +32,6 @@ class TableMaker:
     def pre(names: StrList, container: Container) -> Tree:
         return content_preview(names, container)
         
-
     def __repr__(self) -> str:
         return f'{rt.created}:\n{"\n".join(
             [
