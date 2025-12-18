@@ -2,7 +2,7 @@ from loguru import logger
 from functools import wraps
 from typing import Union, Callable
 from rich_tabler.mixins import rt # type: ignore
-from rich_tabler.modules import Tree, Table, RichHandler, ValidationError, console # type: ignore
+from rich_tabler.modules import console, Tree, Table, RichHandler, ValidationError # type: ignore
 from rich_tabler.custom_types import AnyList, DictList, StrList, Container # type: ignore
 from rich_tabler.models import Content, ContentType, StandardType, TypeChecker # type: ignore
 
