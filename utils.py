@@ -76,9 +76,7 @@ def content_handler(
     else:
         logger.error(rt.warn) # type: ignore
         
-    
-       
-
+        
 def content_preview(names: StrList, container: Container) -> Tree: # type: ignore
 
         tree = Tree('[magenta]data-preview') # type: ignore
