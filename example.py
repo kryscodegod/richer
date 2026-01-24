@@ -1,6 +1,6 @@
 from rich_tabler.modules import console # type: ignore
 from rich_tabler.main import rt, TableMaker # type: ignore
-from rich_tabler.utils import all_exceptions # type: ignore
+from rich_tabler.utils import checked # type: ignore
 from rich_tabler.custom_types import StrList, DictList, Container # type: ignore
 
 
@@ -32,14 +32,14 @@ def demo() -> None:
     console.rule('[bold magenta]example-table')
     ext()
 
-@all_exceptions
+@checked
 def example(cols: StrList, rows: Container | None = None) -> None:
     ext  = ExampleTableDemo(cols, rows,
                             title='[blue]example-table',
                             color='green')
     ext()
 
-@all_exceptions
+@checked
 def example_full(cols: StrList , rows: Container | None = None,
                 title: str | None = None, border: bool = True) -> None:
     if border:
