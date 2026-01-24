@@ -31,25 +31,12 @@ def checked(func: Callable) -> Callable:
 
     return wrapper
 
-'''
-def all_exceptions(func: Callable) -> Callable:
-    @wraps(func)
-    def wrapper(*args, **kwargs):
 
-        try:
-           return func(*args, **kwargs)
-        except Exception as error_msg:
-           logger.error((f'[green]exception-type: [red]{error_msg}\n'
-                f'[green]in function: [yellow]{func.__name__}'))
-           
-    return wrapper
-'''
- 
 @checked
 def check_type(strings: StrList, records: DictList) -> TypeChecker | None: # type: ignore
     return TypeChecker(string_list=strings, dict_list=records) # type: ignore
     
-    
+
 @checked
 def check_other_types(strings: AnyList, contents: Content) -> Union[StandardType, ContentType] | None: # type: ignore
     return StandardType(any_list=strings) and ContentType(content=contents) # type: ignore

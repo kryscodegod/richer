@@ -13,7 +13,7 @@ class RuText:
     try_again: str = '[green] Попробуйте передать в конструктор данные в формате: [bold yellow]list<tuple>[/]'
     set_data_first: str  = '[green] Передайте в конструктор список названий колонок в формате: [bold yellow]list<str>'
     set_data_second: str = '[green] Затем передайте в конструктор данные для создания столбцов в формате: [bold yellow]list<dict<str, str>>'
-    set_data_alt: str = '[green] Вы также можете сделать предварительный просмотр передаваемых данных с помощью метода ~ [bold yellow]content_data_preview'
+    set_data_alt: str = '[green] Вы также можете сделать предварительный просмотр передаваемых данных с помощью специального метода ~ [bold yellow]pre'
     set_data_warn: str = '[red] Помните, что  rich.Table принимает только renderable-объекты и строки!'
 
     def __post_init__(self):

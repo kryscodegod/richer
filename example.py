@@ -23,6 +23,7 @@ class ExampleTableDemo(TableMaker):
     def __str__(self) -> str:
         return rt.info
        
+
 def demo() -> None:
     names = ['id', 'name', 'status']
     content = [{'id': 1, 'name': 'Kristy', 'status': 'author'}]
@@ -32,12 +33,14 @@ def demo() -> None:
     console.rule('[bold magenta]example-table')
     ext()
 
+
 @checked
 def example(cols: StrList, rows: Container | None = None) -> None:
     ext  = ExampleTableDemo(cols, rows,
                             title='[blue]example-table',
                             color='green')
     ext()
+
 
 @checked
 def example_full(cols: StrList , rows: Container | None = None,
@@ -48,6 +51,7 @@ def example_full(cols: StrList , rows: Container | None = None,
     else:
         console.print(TableMaker(cols, container=rows,
                                   title=title, show_edge=False).get_table)
+    
     
 if __name__ == '__main__':
     demo()
